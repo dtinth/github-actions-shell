@@ -11,3 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: ${{ github.event.inputs.command }}
+    env:
+      GIT_COMMITTER_NAME: GitHub Actions Shell
+      GIT_AUTHOR_NAME: GitHub Actions Shell
+      EMAIL: github-actions[bot]@users.noreply.github.com
