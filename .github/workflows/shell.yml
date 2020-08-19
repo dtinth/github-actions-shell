@@ -1,0 +1,12 @@
+on: 
+  workflow_dispatch:
+    inputs:
+      command:
+        description: 'The command to run'
+        required: true
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: ${{ github.event.inputs.command }}
