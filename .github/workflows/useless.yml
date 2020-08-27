@@ -9,4 +9,4 @@ jobs:
     steps:
       - name: unlabel
         run: |
-          curl -X DELETE "https://api.github.com/repos/$GITHUB_REPOSITORY/issues/${{ github.event.pull_request.number }}/labels/useless?access_token=${{ secrets.GITHUB_TOKEN }}"
+          curl -X DELETE "https://api.github.com/repos/$GITHUB_REPOSITORY/issues/${{ github.event.issue.number }}/labels/useless?access_token=${{ secrets.GITHUB_TOKEN }}"
