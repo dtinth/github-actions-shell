@@ -1,0 +1,12 @@
+name: Useless
+on:
+  issues:
+    types: [labeled]
+jobs:
+  useless:
+    if: github.event.label.name == 'useless'
+    runs-on: ubuntu-latest
+    steps:
+      - name: unlabel
+        run: |
+          curl -X DELETE "https://api.github.com/repos/$GITHUB_REPOSITORY/issues/${{ github.event.pull_request.number }}/labels/useless?access_token=${{ secrets.GITHUB_TOKEN }}"
