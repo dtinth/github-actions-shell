@@ -1,4 +1,5 @@
 name: "GitHub Actions Shell"
+run-name: $ ${{ inputs.command }}
 on:
   workflow_dispatch:
     inputs:
