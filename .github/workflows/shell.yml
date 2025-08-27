@@ -6,11 +6,19 @@ on:
       command:
         description: 'The command to run'
         required: true
+      debug:
+        description: 'Enable tmate debugging session'
+        required: false
+        default: false
+        type: boolean
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+      if: ${{ inputs.debug }}
     - run: ${{ github.event.inputs.command }}
     env:
       GIT_COMMITTER_NAME: GitHub Actions Shell
